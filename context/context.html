@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+    context 就可以缩短父组件到子组件的属性传递路径，实现组件之间的通信
+        网址：https://segmentfault.com/a/1190000012575622
+        
+
+    *********
+    注意，React Context 也有一些局限性：
+    1.React Context 目前在 React 在是一个 experimental feature，在未来的版本中会有变化说不定，这点官方文档有说明。
+    
+    2.在组件树中，如果中间某一个组件 ShouldComponentUpdate returning false 了，会阻碍 context 的正常传值，导致子组件无法获取更新。
+
+    3.组件本身 extends React.PureComponent 也会阻碍 context 的更新。
+
+
+    **********
+    解决：
+        解决 ShouldComponentUpdate 与 Context 之间冲突的方案也是有的，例如使用 Redux 或者 Mobx 等全局单一状态管理。
+    这里抛砖引玉，介绍一种简单的解决 Context 不起作用的方法，它必须满足两个条件：
+        1.Context 应该是唯一不可变的
+        2.组件只在初始化的时候去获取 Context
+    
+    
+    
+    */    
+    </script>
+</body>
+</html>
