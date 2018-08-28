@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+    简书网址：https://www.jianshu.com/p/ef6269d9d75a
+
+********************************************************************  
+    Provider功能主要为以下两点：
+        在原应用组件上包裹一层，使原来整个应用成为Provider的子组件
+        接收Redux的store作为props，通过context对象传递给子孙组件上的connect
+
+
+********************************************************************    
+    核心代码很精简：
+
+export default class Provider extends Component {
+  getChildContext() {
+    return { store: this.store }
+  }
+
+  constructor(props, context) {
+    super(props, context)
+    this.store = props.store
+  }
+
+  render() {
+    return Children.only(this.props.children)
+  }
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  Provider.prototype.componentWillReceiveProps = function (nextProps) {
+    const { store } = this
+    const { store: nextStore } = nextProps
+
+    if (store !== nextStore) {
+      warnAboutReceivingStore()
+    }
+  }
+}
+
+Provider.propTypes = {
+  store: storeShape.isRequired,
+  children: PropTypes.element.isRequired
+}
+Provider.childContextTypes = {
+  store: storeShape.isRequired
+}
+
+链接：https://www.jianshu.com/p/ef6269d9d75a
+
+
+
+
+*********注解**********************************************************************
+
+首先，对原组件进行了封装： render方法中, 渲染了其子级元素, 使整个应用成为Provider的子组件。
+
+    （1）this.props.childern用于获取当前组件的所有子组件
+    （2）Children为react内部定义的顶级对象, 该对象封装了一些方便操作字组件的方法. Children.only用于获取仅有的一个子组件,没有或者超过一个均会报错. 所以注意: 确保Provider组件的直接子级为单个封闭元素，切勿多个组件平行放置
+
+其次，传递store
+    （1）constructor方法: Provider初始化时, 获取到props中的store对象;
+    （2） getChildContext方法: 将外部的store对象放入context对象中，使子孙组件上的connect可以直接访问到context对象中的store。
+
+注： context可以使子孙组件直接获取父级组件中的数据或方法，而无需一层一层通过props向下传递。context对象相当于一个独立的空间，父组件通过getChildContext()向该空间内写值；定义了contextTypes验证的子孙组件可以通过this.context.xxx，从context对象中读取xxx字段的值。
+
+
+
+
+**********例子********************************************************************
+之前研究connect的原理时写了一个计数器，现在我们可以将其中的Provider组件写成源码的形式使用，在具体环境下能更好地理解它地原理和效果，具体代码请看：
+https://github.com/lipeishang/react-redux-provider-demo
+
+    */    
+    </script>
+</body>
+</html>
