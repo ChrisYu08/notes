@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*  ts 基本数据类型（和js有区别）：Boolean,Number,String,Array,Enum,Any,Void
+        js 基本类型：Object number,string,boolean,symbol,null,undefined
+    https://blog.csdn.net/tyro_java/article/details/80560485
+
+
+        1.和javascript多出的类型（并非基本数据类型）
+        （1）元组Tuple
+                什么是元组？
+            元组与列表类似，也可以存储任意类型元素。但元组与列表的主要区别在于元组一旦创建就不能再做改动了。
+            很多时候不希望处理过程修改对象内容，这时就需要用到元组的不可变性。
+
+        （2）枚举 enum
+            enum 类型是对javaScript标准数据类型的一个补充。使用枚举类型可以为一组数值赋予友好的名字
+            例子：
+            enum Color {Red,Green,Blue}
+            let c:Color=Color.Green
+
+        （3）任意值 any
+
+            当变量为动态的不知道类型的情况下，使用any。
+            let notSure:any = 4;
+            notSure="maybe";
+            notSure=false;
+            (这里就跟平时javascript定义的一样了)
+
+        （4）空值 void
+        void类型像是与any类型相反，它表示没有任何类型，当一个函数没有返回值时，你通常会见到其返回值为void。
+        
+        （5）undefined和null是所有数据类型的子类型，可以把其赋值给其他类型。
+
+        （6）Never：也为任何类型的子类型
+
+        (7)object表示非原始类型，也就是除了number,string,boolean,symbol,null,undefined之外的类型。
+
+    */
+    </script>
+</body>
+</html>
