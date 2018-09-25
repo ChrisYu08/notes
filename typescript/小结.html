@@ -8,11 +8,24 @@
 </head>
 <body>
     <script>
-    /*  ts 基本数据类型（和js有区别）：Boolean,Number,String,Array,Enum,Any,Void
+    /*  ts 基本数据类型（和js有区别）：
+            1.基本类型：Boolean,Number,String,Null,undefined.
+            2.特殊类型：Array,Tuple,Enum,Any,Void,Never
+            在ts中类型是小写的。大小写是有区别的
+            var b:string = 'hahe'; 小写声明的是变量
+            var b1:String = new String('hehe') 大写声明的对象
+            3.类型断言：
+                (1)尖括号语法-----code:<string>someValue
+                (2)as 语法-----code:someValue as string
+
+
         js 基本类型：Object number,string,boolean,symbol,null,undefined
     https://blog.csdn.net/tyro_java/article/details/80560485
-
         例子：let a:number = 2
+
+
+
+        
         1.和javascript多出的类型（并非基本数据类型）
         （1）元组Tuple
                 什么是元组？
@@ -42,6 +55,16 @@
 
         (7)object表示非原始类型，也就是除了number,string,boolean,symbol,null,undefined之外的类型。
 
+
+        编译的用法
+        在终端里 tsc ./src/1.ts 直接写就是编译到原来的路径
+                tsc ./src/1.ts --outFile ./dist/1.js 编译到./dist路径下
+
+
+
+        创建程序文件
+            .ts文件
+            .tsx文件 （为处理JSX语法文件）
     */
     </script>
 </body>

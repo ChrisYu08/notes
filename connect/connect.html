@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            网址：https://blog.csdn.net/loveu2000000/article/details/52491269
+                 https://segmentfault.com/a/1190000012159874
+
+            mapStateToProps：负责将state中的有用数据，外加组件自生的props传人关联组件。
+
+            mapDispatchToProps：主要负责传人组件关联的事件，这里暂时也不讲reduce事件了。
+
+            
+        
+        */  
+       
+        /*
+        ******* connect源码：
+        export const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponent) => {
+        class Connect extends Component {
+            static contextTypes = {
+            store: PropTypes.object
+            }
+
+            constructor () {
+            super()
+            this.state = {
+                allProps: {}
+            }
+            }
+
+            componentWillMount () {
+            const { store } = this.context
+            this._updateProps()
+            store.subscribe(() => this._updateProps())
+            }
+
+            _updateProps () {
+            const { store } = this.context
+            let stateProps = mapStateToProps
+                ? mapStateToProps(store.getState(), this.props)
+                : {} // 防止 mapStateToProps 没有传入
+            let dispatchProps = mapDispatchToProps
+                ? mapDispatchToProps(store.dispatch, this.props)
+                : {} // 防止 mapDispatchToProps 没有传入
+            this.setState({
+                allProps: {
+                ...stateProps,
+                ...dispatchProps,
+                ...this.props
+                }
+            })
+            }
+
+            render () {
+            return <WrappedComponent {...this.state.allProps} />
+            }
+        }
+        return Connect
+        }
+        */
+    </script>
+</body>
+</html>

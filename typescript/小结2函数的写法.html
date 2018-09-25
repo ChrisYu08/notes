@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*  
+        1.
+        function fn1(x:number,y:number):number{
+            return x+y;
+        }
+        //上面函数为设定传参x，y都为number类型的。返回值也为number类型的。
+        
+        2.简化写法
+        var myAdd = function(x: number, y: number): number { 
+            return x+y; 
+        };
+        或
+        var myAdd: (x:number, y:number)=>number = function(x, y) {
+                 return x+y; 
+                 };
+        我们可以给每个参数指定类型，并且为函数本身return的值指定类型。TypeScript能够根据return语句推算出返回值的类型，所以很多情况下可以忽略它。
+
+        3.现在我们已经为函数添加了类型，接下来为函数写出所有的类型（最完整写法）：
+            var myAdd: (x:number, y:number)=>number = function(x: number, y: number): number {
+                 return x+y; 
+                 };
+
+        4.如果参数可传可不传（加个问号，或者用默认值）
+        例子：
+        用？
+            function fn1(x:number,y?:number):number{
+                return x+y;
+            } 
+        默认值
+            function fn1(x:number,y:number=0):number{
+                return x+y;
+            }
+        
+        5.剩余参数
+            function buildName(firstName:string,...restOfName:string[]){
+                return firstName+" "+restOfName.join(" ");
+            }
+
+            let employeeName=buildName('1','2','3')
+
+        6.函数重载
+            function fn4(x:number,y:number):number;
+            function fn4(x:string,y:string):number;
+            function fn4(x:any,y:any):any{
+
+            }
+            这样的话
+            fn4('a','b');
+            fn4(1,2);
+            就都可以了
+
+
+    */
+    </script>
+</body>
+</html>

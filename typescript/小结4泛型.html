@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*  
+        定义泛型：(这里T相当于定义了一个类型，为了是内部的类型保持一致)
+        function identity<T>(arg:T):T{
+            return arg;
+        }
+        函数声明式定义函数的另一种写法：
+        let myIdentity:<T>(arg:T)=>T=identity;
+
+        两种方法使用：
+        (1)传入参数和类型
+        let output = identity<string>("myString")
+        (2)利用类型推论
+        let output = identity("myString")
+        
+        另一种处理：
+        现在想操作T类型的数组，而不是直接操作T，
+        function loggingIdentity<T>(arg:T[]):T[]{
+            console.log(arg.length);
+            return arg;
+        }
+
+    */
+   
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*  ts 基本数据类型（和js有区别）：
+            1.基本类型：Boolean,Number,String,Null,undefined.
+            2.特殊类型：Array,Tuple,Enum,Any,Void,Never
+            在ts中类型是小写的。大小写是有区别的
+            var b:string = 'hahe'; 小写声明的是变量
+            var b1:String = new String('hehe') 大写声明的对象
+            3.类型断言：
+                (1)尖括号语法-----code:<string>someValue
+                (2)as 语法-----code:someValue as string
+
+
+        js 基本类型：Object number,string,boolean,symbol,null,undefined
+    https://blog.csdn.net/tyro_java/article/details/80560485
+        例子：let a:number = 2
+
+        
+        联合类型：
+        例子：
+        function getData():string| string[]{
+            if(Math.random()<.5){
+                return 'haha'
+            }else{
+                return['a','b']
+            }
+        }
+        
+        var result:string|string[]=getData();
+        //这里不能用 result.push直接进行判断，因为有两种可能，所以得用类型断言
+        //这里如果想给返回值的时候使用push方法，就需要用到类型断言 （加<>）
+        if((<string[]>result.push)){
+            (<string[]>result).push(1);
+        }else{
+            (<string>result).substring(0);
+        }
+        或者用as语法
+        if((result as string[]).push){
+            (result as string[]).push(1);
+        }else{
+            (result as string).substring(0);
+        }
+
+    */
+    </script>
+</body>
+</html>
