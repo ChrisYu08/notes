@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            https://www.cnblogs.com/moyand/p/9047978.html
+
+            https://blog.csdn.net/qq_29845761/article/details/51897705
+            cookie:
+                理论上：
+            $.ajax({
+                    headers: {'Cookie' : document.cookie },
+                    url: "sub.domain.com",
+                    success: function(){}
+            })
+                  通过修改请求头是可以传递cookie等信息的。但是w3c的标准写的很清楚，cookie,connection和content-length等是不安全的字段，
+                容易导致多种的request smuggling攻击，不允许编程设置。这些字段浏览器会自动帮你设置，如果设置就会报出错误：“Refused to set unsafe header "Content-Length"。
+
+        
+        */    
+    </script>
+</body>
+</html>
