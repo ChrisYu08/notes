@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+        网址：（proxy web）https://codeburst.io/webpack-typescript-react-part-1-dc154e250f23
+        
+        有关tsconfig.json详细:
+            https://www.cnblogs.com/faunjoe88/p/7161476.html
+            https://www.cnblogs.com/Hao-Killer/p/7302627.html
+            https://www.jianshu.com/p/9162d54d4821
+
+        解决的
+            TS2304 Cannot find name 'Map', 'Set', 'Promise' 问题
+            网址：https://blog.csdn.net/qq_15807167/article/details/72910879
+
+    */
+            {
+                "compilerOptions": {
+                    "module": "commonjs", 
+                    "noImplicitAny": true,
+                    "removeComments": true, 
+                    "preserveConstEnums": true, 
+                    "outFile": "../../built/local/tsc.js", 
+                    "sourceMap": true 
+                    }, 
+                    "files": [ 
+                    "core.ts",
+                    "sys.ts", 
+                    "types.ts", 
+                    "scanner.ts", 
+                    "parser.ts", 
+                    "utilities.ts", 
+                    "binder.ts", 
+                    "checker.ts",
+                    "emitter.ts",
+                    "program.ts", 
+                    "commandLineParser.ts",
+                    "tsc.ts", 
+                    "diagnosticInformationMap.generated.ts"
+                    ]
+                }
+
+                {
+                "compilerOptions": { 
+                "module": "commonjs", 
+                "noImplicitAny": true, 
+                "removeComments": true, 
+                "preserveConstEnums": true, 
+                "outFile": "../../built/local/tsc.js", 
+                "sourceMap": true 
+                }, 
+                "include": [ "src/**/*" ], //src下的所有文件，不区分文件类型
+                "exclude": [ "node_modules", "**/*.spec.ts" ]   //区分文件类型就要加后缀
+            }
+            /***
+             * 
+             * 那个路径是 递归文件夹找文件，regex path ， linux 上的概念
+             * 
+             * *
+            */
+        
+    </script>
+</body>
+</html>
