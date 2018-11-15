@@ -35,6 +35,7 @@
         
         
         不同：1.construction上面对属性类型进行限制
+            （website：https://www.jianshu.com/p/f871dd3dde5b）
              2.修饰符（
                 (1)public公共
                 （2）protected受保护  只能在类里面访问他，不能在外面对象直接访问，但可以通过子类内部的方法访问属性
@@ -44,6 +45,8 @@
              3.存取器（getter,setter）
              4.静态成员（1.静态属性；2.静态方法）
                 class Teacher{
+                    //public 是默认的加与不加效果是一样的
+                    public name:string;
                     age:number;
                     static flag:string = '我以前是个傻逼';
                     constructor(age:number){

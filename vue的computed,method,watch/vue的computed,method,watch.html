@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        website:https://segmentfault.com/q/1010000007473708?_ea=1356044
+    一、
+        计算属性不能传值，只能利用已有参数做出相应的某种变化，想使用灵活需要内部依赖的参数变化来调整；
+        使用methods来做，根据传参返回不同的值。
+
+        methods: {
+            convertUrl (params) {
+                if () {...}
+                else {...}
+                
+                or
+                
+                switch () {...}
+                
+                or something else...
+            }
+
+        }
+    二、
+        :data="closure(item, itemName, blablaParams)"
+
+        computed: {
+        closure () {
+        return function (a, b, c) {
+                
+                return data
+            }
+        }
+        }
+        亲测有效
+
+        不要认为 这里data 赋值不了给 :data
+
+        这里是return 一个 匿名函数， 实际 :data 绑定的是这个匿名函数, data 是可以return 的！
+
+        明明正确正常合规的回答，居然还有人举报，连正常的技术讨论也有小人来参合吗？？？！！！
+        有任何异议欢迎来辩
+
+        关于 评论中提到的，能否触发缓存结果,我做了一个试验
+
+        {{cacheSome('a')}}
+
+        cacheSome () {
+        return function (a) {
+            return Date.now() + 'a'
+        }
+        }
+        */    
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            网址：https://blog.csdn.net/yuhk231/article/details/77993231
+            冻结原型链的创建对象：
+                Object.create(null)
+        
+
+
+            get/set访问器不是对象的属性，而是属性的特性。大家一定要分清楚。特性只有内部才用，因此在javaScript中不能直接访问他们。
+            访问器属性属性——不包含数据值，包含一个getter和setter函数（这两个函数不是必须的）
+            访问器属性也有描述其行为的四个特性： [[Configurable]]:是否可配置,[[Enumerable]]:是否可枚举,[[Get]]:在读取属性时调用的函数，默认是undefined,[[Set]]:在写入属性时调用的函数，默认是undefined
+
+            　
+            只声明了get pro(){}属性 可读不可写；
+            只声明 set pro(){}属性可写不可读。
+            如果都不声明，属性可读可写；
+            如果都声明就按照，get set 定义的方法，读写；
+            如果都声明了，但是定义的读写方法不能正确读写，get/set失效。变成默认的可读可写
+            在prototype里面定义的value属性，定义了get 特性。依然可以控制value属性的读写 。也就是说obj.value访问属性时，会调用get方法，先在对象本身寻找，
+            如果没有，再到prototype寻找，如果都没有才算没有定义，默认的既可读又可写。
+        */
+    </script>
+</body>
+</html>
