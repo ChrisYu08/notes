@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            js将base64转图片
+            website：https://segmentfault.com/q/1010000012560812
+             需要前端将base64转换为可以上传的file对象，然后放在ajax的表单中上传
+                function base64ToBlob(urlData) {
+                    var arr = urlData.split(',');
+                    var mime = arr[0].match(/:(.*?);/)[1] || 'image/png';
+                    // 去掉url的头，并转化为byte
+                    var bytes = window.atob(arr[1]);
+                    // 处理异常,将ascii码小于0的转换为大于0
+                    var ab = new ArrayBuffer(bytes.length);
+                    // 生成视图（直接针对内存）：8位无符号整数，长度1个字节
+                    var ia = new Uint8Array(ab);
+                    
+                    for (var i = 0; i < bytes.length; i++) {
+                        ia[i] = bytes.charCodeAt(i);
+                    }
+
+                    return new Blob([ab], {
+                        type: mime
+                    });
+                }
+                
+                // 使用方式
+                upload({
+                    url: 'xxx',
+                    files: [{
+                    name: 'name1',
+                    // 值可以用base64转好的blob，也可以直接用fileinput中获取的文件对象，效果一样
+                    file: b64ToBlob(imgData),
+                    }],
+                    ...
+                });
+            
+            注意，上述upload可以是你自己的上传方法（库很多，譬如webupload，当然自己封装一个也很简单），原理如下：
+            var formdata = new FormData();
+
+            var files = settings.files;
+
+            if (files) {
+                if (Array.isArray(files)) {
+                    for (var i = 0,
+                    len = files.length; i < len; i++) {
+                        formdata.append(files[i].name, files[i].file);
+                    }
+                } else {
+                    formdata.append(files.name, files.file);
+                }
+            }
+            ...
+        
+            省略了若干代码。
+        */
+    </script>
+</body>
+</html>

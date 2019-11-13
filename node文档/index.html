@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  /*
+    1.assert 断言
+      在nodejsh中有一个assert模块，这个模块主要用于内部断言测试使用，我们也可以在项目中使用assert模块进行断言的判断。 
+      如果是true则测试通过，如果是false则测试不通过。 
+      关键点：第一参数value是测试的值，第二个是测试结果的提示，默认第二个参数为空
+      const assert = require('assert')
+      assert(1)   //ok
+      assert(false,'msg')//AssertiononError: msg
+      assert(false)   //AssertiononError: false == true
+
+**********************************************************************************
+
+    2.async_hooks 异步钩子
+      我们可以使用 async_hooks.createHook 来创建一个异步资源的钩子，注册一些关于异步资源生命周期中可能发生事件的回调函数作为 async_hooks.createHook 的输入。
+      每当异步资源被创建/执行/销毁时这些钩子函数会被触发
+      (console.log是异步的)
+        var asyncHooks = require('async_hooks')
+        var hooks = {
+          init: init,
+          before: before, 
+          after: after,
+          destroy: destroy
+        }
+        var asyncHook = asyncHooks.createHook(hooks)
+
+**********************************************************************************
+
+      3.Buffer 缓冲器
+        使用buffer类处理二进制数据。
+        在客户端javascript脚本代码中，对于二进制数据并没有提供一个很好的支持。然后在nodejs中需要处理像TCP流或文件流时，必须要处理二进制数据。
+        因此在node.js中，定义了一个Buffer类，该类用来创建一个专门存放二进制数据的缓存区。
+
+        website:https://blog.csdn.net/raymondlin9292/article/details/84783384
+  
+**********************************************************************************
+
+      4.child_process 子进程
+        众所周知node.js是基于单线程模型架构，这样的设计可以带来高效的CPU利用率，但是无法却利用多个核心的CPU，为了解决这个问题，node.js提供了child_process模块，
+        通过多进程来实现对多核CPU的利用. child_process模块提供了四个创建子进程的函数，分别是spawn，exec，execFile和fork。
+
+        website:https://blog.csdn.net/qq_16577739/article/details/50087821
+
+**********************************************************************************
+
+      5.cluster 集群
+        大家都知道nodejs是一个单进程单线程的服务器引擎，不管有多么的强大硬件，只能利用到单个CPU进行计算。所以，有人开发了第三方的cluster，让node可以利用多核CPU实现并行。
+        cluster是一个nodejs内置的模块，用于nodejs多核处理。cluster模块，可以帮助我们简化多进程并行化程序的开发难度，轻松构建一个用于负载均衡的集群。
+
+        用法website:https://www.cnblogs.com/duhuo/p/4767954.html
+
+**********************************************************************************
+
+      6.crypto 加密
+        加密解密数据
+      
+**********************************************************************************
+
+      7.http
+        创建个服务及请求
+        website:https://blog.csdn.net/u010088421/article/details/80561499
+        开启个服务及请求的例子:https://www.cnblogs.com/zimuzimu/p/6215729.html
+**********************************************************************************
+
+      
+  */  
+  </script>
+</body>
+</html>

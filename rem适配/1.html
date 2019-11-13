@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, minimum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html { font-size: 625%; } 
+    html,body {margin:0;padding: 0 }
+    
+    .box{
+      /* width: 3.5rem; */
+      width:3.5rem;
+      height:4rem;
+      background: blue;
+      display: inline-block;
+      float: left;
+      
+    }
+    .box1{
+      /* width: 0.25rem; */
+      width:3.74rem;
+      height:4rem;
+      background: red;
+      display: inline-block;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+  </div>
+  <div class="box1">
+
+    </div>
+  <script>
+var html=document.documentElement;
+var hwidth=html.clientWidth;alert(hwidth);
+html.style.fontSize=100*hwidth/375+'px'
+  </script>
+</body>
+</html>

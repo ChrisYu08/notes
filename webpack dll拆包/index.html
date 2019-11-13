@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      website:
+        https://www.jb51.net/article/142761.htm;
+        https://www.cnblogs.com/lusongshu/p/8473318.html
+      教师端项目就是这样配置的
+      作用是提取公共模块，并且把包的体积减小。
+
+      一般我们可以把项目分为三部分.
+      分类	说明	变动频率
+      vendor_library	核心库	低
+      vendor	一般项目依赖	中等
+      code	业务逻辑	高
+      vendor_library:比如vue,vue-router,axios 这些变动频率极低的文件可以利用 DllPlugin 和 DllReferencePlugin 进行预编译.
+
+      vendor,code在开发阶段,每次构建都需要编译.但是一旦完成该次开发任务,应该调整vendor 是否加入vendor_library.
+
+      BundleAnalyzerPlugin 的插件使用
+      BundleAnalyzerPlugin 是分析 Webpack 生成的包体组成并且以可视化的方式反馈给开发者的插件。
+
+      优化方向
+      按需加载
+      muse-ui,iview 都提供了按需加载的方式,按照文档调整即可.
+    */  
+  </script>
+</body>
+</html>

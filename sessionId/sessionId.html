@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        
+        website:https://blog.csdn.net/u013474104/article/details/78717790
+                https://www.cnblogs.com/xdp-gacl/p/3855702.html
+
+        常见的session保持方式是，当浏览器向服务端发起http请求时，服务端检查在http头部cookie参数里是否包含sessionid，
+        如果有sessionid就根据sessionid去查看存储在服务器端的session，session里保存的当前会话的一些信息。如果sessionid没有服务端就会分配一个，写到cookie字段里，浏览器下次发起其它请求的时候带上。
+
+        因此，为了解决上面我说的问题，我们可以这样做，客户端在第一次请求服务器时，也就是登录的时候获得一个sessionid，在本地存储起来，然后在之后每次请求服务器的时候就在header里面带上这个sessionid，
+        写到cookie字段里。但是有个问题就是，你本地存储了这个sessionid后那么以后每次都会是这个sessionid，所以建议在程序每次启动的时候先清空本地存储的sessionid，然后发送首次请求获取新的sessionid。
+
+        如下为ajax请求时在header中带上sessionid的客户端代码：
+
+        $.ajax({
+            type: 'post',
+            headers: {
+                'Cookie':'JSESSIONID=1k2naixut68f81q5rpr0c3n4vc'
+            },
+            data: {},
+            dataType: 'json',
+            timeout: 30000,
+            url: '/test',
+            success: function (res) {
+                alert("success");
+            },
+            error: function (e) {
+                alert("false");
+            }
+        })
+        
+        */    
+    </script>
+</body>
+</html>

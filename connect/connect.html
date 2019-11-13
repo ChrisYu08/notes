@@ -11,10 +11,12 @@
         /*
             网址：https://blog.csdn.net/loveu2000000/article/details/52491269
                  https://segmentfault.com/a/1190000012159874
+                 //mapStateToProps和mapDispatchToProps的第二个参数：
+                 https://www.cnblogs.com/orzzt/p/9831343.html
 
-            mapStateToProps：负责将state中的有用数据，外加组件自生的props传人关联组件。
+            mapStateToProps：负责将state中的有用数据，外加组件自生的props传入关联组件。(reducer里的state添加到this.props)
 
-            mapDispatchToProps：主要负责传人组件关联的事件，这里暂时也不讲reduce事件了。
+            mapDispatchToProps：主要负责传人组件关联的事件，这里暂时也不讲reduce事件了。(将actionCreator和dispatch添加到this.props)
 
             
         

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+    mounted 中 refs获取为undefined。
+    website：https://www.jb51.net/article/131163.htm
+    原来，mounted阶段，DOM结构准备就绪，但是这里的准备就绪需要特别说明一下：
+
+    DOM结构已经出来了，但是如果在DOM结构中的某个DOM节点使用了v-if、v-show或者v-for（即根据获得的后台数据来动态操作DOM，即响应式），
+    那么这些DOM是不会再mounted阶段找到的。
+    
+    */    
+    </script>
+</body>
+</html>

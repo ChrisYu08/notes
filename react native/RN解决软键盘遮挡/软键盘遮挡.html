@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            website:https://blog.csdn.net/codetomylaw/article/details/52643031
+
+            <ScrollView ref='scroll' keyboardShouldPersistTaps={true} >
+                <View onStartShouldSetResponderCapture={(e) => {
+                let target = e.nativeEvent.target;
+                if (target !== ReactNative.findNodeHandle(this.refs.hour) ) {
+            　		this.refs.hour.blur();
+                }
+                }}>
+
+                <TextInput
+                  style={styles.ksValueView}
+                  maxLength={2}
+                  placeholder="0"
+                  placeholderTextColor="#b2b2b2"
+                  multiline={false}
+                  onChangeText={this.changeHour.bind(this)}
+                  keyboardType="numeric"
+                  ref = 'hour'
+                  onFocus={this.scrollViewTo.bind(this)}
+                  onEndEditing={()=>{this.refs.scroll.scrollTo({y:0,x:0,animated:true})}}
+
+                >
+
+
+                </View>
+            </ScrollView>
+
+        //在onEndEditing中恢复滚动
+    scrollViewTo(e){
+　　　　let target = e.nativeEvent.target;
+　　　　let scrollLength = 0;//初始值
+　　　　if (target=== ReactNative.findNodeHandle(this.refs.hour)) {
+　　　　　　scrollLength = 216;
+　　　　}
+　　　　this.refs.scroll.scrollTo({y:scrollLength,x:0});
+    }
+        */
+            
+    </script>
+</body>
+</html>

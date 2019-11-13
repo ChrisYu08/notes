@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      website: https://blog.csdn.net/gao_xu_520/article/details/80527421
+
+      eg：
+        import { createStore ,applyMiddleware} from 'redux'; 
+        import thunk from 'redux-thunk'; 
+        //1.新建store
+        const store = createStore(counter,applyMiddleware(thunk));
+        
+        
+        //action 创建函数  ：延迟添加 拖俩天再给
+        export  function addGunAsync(){
+          //thunk插件的作用，这里可以返回函数
+          return dispatch =>{
+            //异步结束后，手动执行dispatch
+            setTimeout(() => {
+                dispatch(addGUN())
+            }, 2000)
+          }
+        }
+        
+    */
+  </script>
+</body>
+</html>

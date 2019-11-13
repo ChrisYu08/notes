@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    path.resolve和path.join的区别：
+
+    1. 对于以/开始的路径片段，path.join只是简单的将该路径片段进行拼接，而path.resolve将以/开始的路径片段作为根目录，在此之前的路径将会被丢弃，就像是在terminal中使用cd命令一样。
+
+    path.join('/a', '/b') // 'a/b'
+    path.resolve('/a', '/b') // '/b'
+    
+
+    2. path.resolve总是返回一个以相对于当前的工作目录（working directory）的绝对路径。
+
+    path.join('./a', './ßb') // 'a/b'
+    path.resolve('./a', './b') // '/Users/username/Projects/webpack-demo/a/b'
+
+
+
+    website:https://www.cnblogs.com/duhuo/p/4752640.html
+
+    该方法将多个参数值字符串结合成一个路径字符串，使用方式如下：
+    path.join([path1], [path2], [...])
+    在该方法中，可以使用一个或多个字符串值参数，该参数返回将这些字符串值参数结合而成的路径。
+    var joinPath = path.join(__dirname, 'a', 'b', 'c');
+    console.log(joinPath);      //   D:\nodePro\fileTest\a\b\c
+    
+    __dirname变量值代表程序运行的根目录。
+    */  
+  </script>
+</body>
+</html>

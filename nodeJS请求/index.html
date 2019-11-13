@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  /**
+   * 
+   * *
+  
+    website:https://juejin.im/post/5c35775f6fb9a049c6440789
+
+
+
+在Node.js中发起HTTP请求的5种方法
+深入解析Node.js中5种发起HTTP请求的方法
+
+翻译：疯狂的技术宅 英文标题：5 Ways to Make HTTP Requests in Node.js 原文链接：https://www.twilio.com/blog/2017/08/http-requests-in-node-js.html
+
+
+创建HTTP请求使现代编程语言的核心功能之一，也是很多程序员在接触到新的开发环境时最先遇到的技术之一。在Node.js中有相当多的解决方案，其中有语言内置功能，也有开源社区贡献的开发库。下面咱们来看一下比较流行的几种方式。
+
+在本文的案例中，我们将使用NASA提供的“每日太空照片API”作为交互用的JSON API， 因为太空是有史以来最酷的东西。
+
+
+在开始之前，请先在自己的计算机上安装最新版的node.js和npm。
+
+HTTP - 标准库
+首先是标准库中默认的HTTP模块。这个模块无需安装依赖外部即可使用，做到了真正的即插即用。缺点是与其他解决方案相比，用起来不是那么友好。
+
+下面的代码将向NASA的API发送一个GET请求，并输出当天的天文照片的URL，以及它的注解:
+
+const https = require('https');
+ 
+https.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', (resp) => {
+  let data = '';
+ 
+  // A chunk of data has been recieved.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
+ 
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    console.log(JSON.parse(data).explanation);
+  });
+ 
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+复制代码
+HTTP和HTTPS模块提供的大多数功能是相当有限的。你需要以区块为单位接收响应数据，而不是只提供一个回调函数，以便在收到所有数据后就立即执行。如果它是JSON格式你还需要进行手动解析。尽管工作量不大，但是它仍然会带来一些不必要的操作。
+
+另一个麻烦是，HTTP和HTTPS协议分属两个模块，因此如果我们使用的API是通过HTTPS协议进行通信，则需要HTTPS模块。
+
+如果你不想向代码库中添加太多的依赖项或希望使用其底层的功能, 那么可能需要花费更多的精力来获取所需的数据, 尽管如此，但是它仍然是一个很好的工具。
+
+Request
+Request是一个简化的http客户端，它和Python的request库很像。这个库比默认的http模块更好用，多年来被开源社区作为开发首选。
+
+自从我开始使用Node.js就一直在用，他对快速完成开发任务很有帮助。与http模块不同的是，你必须使用npm来安装它。
+
+在终端下进入到你想要代码被下载的目录中，运行以下命令：
+
+npm install request@2.81.0
+复制代码
+可以看到，不需要写太多代码就能完成前面的功能：
+
+const request = require('request');
+ 
+request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
+  if (err) { return console.log(err); }
+  console.log(body.url);
+  console.log(body.explanation);
+});
+复制代码
+如果你想要一个使用正常方式处理HTTP请求的苦，那么Request是一个很好的选择。如果你想使用Promises，也可以签出request-promise库。
+
+Axios
+Axios是一个基于promise的HTTP客户端，可以用于浏览器和Node.js。在处理需要更复杂的事件链的代码时，使用Promises具有很大的优势。 编写异步代码可能会令人困惑，而Promises是这个问题的几种解决方案之一。 它们甚至被用在其它语言中，比如Swift。
+
+使用npm安装Axios，在终端中输入以下命令：
+
+npm install axios@0.16.2
+复制代码
+下面的代码实现相同的功能，得到URL并解释当天的天文学图片。
+
+const axios = require('axios');
+ 
+axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+  .then(response => {
+    console.log(response.data.url);
+    console.log(response.data.explanation);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+复制代码
+默认情况下，Axios可以解析JSON响应，非常方便。你也可以看到错误处理是由.catch()完成的，现在我们都在使用 promises。
+
+你甚至可以通过axios.all发起多个并发请求，比如说你想一次性得到两天的天文图片可以这样做：
+
+var axios = require('axios');
+ 
+axios.all([
+  axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2017-08-03'),
+  axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2017-08-02')
+]).then(axios.spread((response1, response2) => {
+  console.log(response1.data.url);
+  console.log(response2.data.url);
+})).catch(error => {
+  console.log(error);
+});
+复制代码
+异步代码很容易地变得十分复杂并且不容易处理, 和 it 解决这个问题的方式可能会让你的生活更容易从长远来看。Axios很轻松的解决了这个问题，从长远看来可以使你的开发工作变得轻松。
+
+SuperAgent
+与Axios类似，SuperAgent 是另一个流行的库，主要用于浏览器中的Ajax请求，但也适用于Node.js。使用以下命令安装SuperAgent :
+
+npm install superagent@3.5.2
+
+复制代码
+SuperAgent最酷的地方是能进行链式调用，你可以把其它函数链到像query()这样的请求上，并且添加参数。在前面的例子中我们都是手动添加它们。请注意 SuperAgent 是怎样提供这种功能的:
+
+const superagent = require('superagent');
+ 
+superagent.get('https://api.nasa.gov/planetary/apod')
+.query({ api_key: 'DEMO_KEY', date: '2017-08-02' })
+.end((err, res) => {
+  if (err) { return console.log(err); }
+  console.log(res.body.url);
+  console.log(res.body.explanation);
+});
+复制代码
+和axios一样，你也不用自己解析去JSON响应，这非常酷。
+
+Got
+如果你想用一个更轻量级的库，Got是另外一个选择。它也可用于Twilio Functions。
+
+再来一遍，实用npm安装Got：
+
+npm install got@7.1.0
+复制代码
+和Axios一样，Got也能同Promises一起很好的工作。下面的代码做的事情和前面的例子一样：
+
+const got = require('got');
+ 
+got('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }).then(response => {
+  console.log(response.body.url);
+  console.log(response.body.explanation);
+}).catch(error => {
+  console.log(error.response.body);
+});
+复制代码
+如果你想要一个不像Request那样臃肿的轻量级的库，使用Got就对了。
+
+最后的想法
+以上并不是全部的解决方案，不过看到了这里，你知道了在Node.js中一些流行的HTTP库中的基本功能是怎样工作的。还有一些库，例如node-fetch将浏览器的获取（fetch）功能移植到后端。在其他语言中也有各种类似的库解决这个问题，比如 Python 和 Ruby 。
+
+
+  */
+  </script>
+</body>
+</html>
