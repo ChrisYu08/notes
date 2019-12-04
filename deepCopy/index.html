@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function deepCopy(obj) {
+    var result = Array.isArray(obj) ? [] : {};
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        if (typeof obj[key] === 'object' && obj[key]!==null) {
+          result[key] = deepCopy(obj[key]);   //递归复制
+        } else {
+          result[key] = obj[key];
+        }
+      }
+    }
+    return result;
+  }  
+  function DeepCopy(obj){
+    let result=Array.isArray(obj)?[]:{};
+    for(let key in obj){
+      if(typeof obj[key] === 'object' && obj[key]!==null) {
+        result[key] = DeepCopy(obj[key]);
+      }else{
+        result[key] = obj[key];
+      }
+    }
+    return result;
+  }
+  </script>
+</body>
+</html>

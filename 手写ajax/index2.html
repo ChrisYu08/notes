@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var opt={};
+    const ajax = new XMLHttpRequest;
+    if(opt.type=='get'){
+      ajax.open('get',opt.url+'?'+opt.data,true);
+      ajax.onreadystatechange=ready;
+      ajax.send();
+    }else if(opt.type=='post'){
+      ajax.open('post',opt.url,true);
+      ajax.onreadystatechange=ready;
+      ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+      ajax.send(opt.data);
+    }
+    function ready(){
+      if(ajax.readyState==4){
+        opt.success(ajax.responseText)
+      }
+    }
+  //0、请求未初始化
+  //1、服务器连接已建立
+  //2、请求已接收
+  //3、请求处理中
+  //4、请求已完成，相应已就绪
+  </script>
+</body>
+</html>

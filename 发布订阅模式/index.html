@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  //#### 七、发布订阅者模式（观察者模式）
+
+  var event = {}; // 发布者
+  event.clientList = [] //发布者的缓存列表
+
+  event.listen = function (fn) {  // 增加订阅者函数
+    this.clientList.push(fn)
+  }
+
+  event.trigger = function () {  // 发布信息
+    for (var i =0;i<this.clientList.length;i++) {
+      var fn = this.clientList[i];
+      fn.apply(this, arguments);
+    }
+  }
+
+  event.listen (function(time) {
+    console.log('正式上班时间为：' +time)
+  })
+  event.listen (function(time) {
+    console.log('再次正式上班时间为：' +time)
+  })
+  event.trigger ('2018/7')
+  event.trigger ('2019/12')  
+  </script>
+</body>
+</html>
