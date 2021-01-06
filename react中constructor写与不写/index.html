@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Haha {
+            constructor(props) {
+                this.a=props;
+                console.log(this.a)
+            }
+        }
+
+        let h=new Haha(123)
+
+        /*
+            react中constructor写与不写是一样的
+            babelBabel将会在后台自动加上constructor，但标准的es6类式是不会自动不上的，传参数传入的props是要通过constructor传入的
+            website:https://segmentfault.com/a/1190000020936885
+            https://segmentfault.com/a/1190000022521222
+        */
+    </script>
+</body>
+</html>

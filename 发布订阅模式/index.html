@@ -9,29 +9,71 @@
 <body>
   <script>
   //#### 七、发布订阅者模式（观察者模式）
+// version 1.0
+  var events = {}; // 发布者
+  events.clientList = [] //发布者的缓存列表
 
-  var event = {}; // 发布者
-  event.clientList = [] //发布者的缓存列表
-
-  event.listen = function (fn) {  // 增加订阅者函数
+  events.listen = function (fn) {  // 增加订阅者函数
     this.clientList.push(fn)
   }
 
-  event.trigger = function () {  // 发布信息
+  events.trigger = function () {  // 发布信息
     for (var i =0;i<this.clientList.length;i++) {
       var fn = this.clientList[i];
       fn.apply(this, arguments);
     }
   }
 
-  event.listen (function(time) {
+  events.off = function (event) {  //删除订阅
+    delete events[event]
+  }
+
+  events.listen (function(time) {
     console.log('正式上班时间为：' +time)
   })
-  event.listen (function(time) {
+  events.listen (function(time) {
     console.log('再次正式上班时间为：' +time)
   })
-  event.trigger ('2018/7')
-  event.trigger ('2019/12')  
+  events.trigger ('2018/7')
+  events.trigger ('2019/12')  
+
+
+
+  /**
+   * more exactly version
+   * version 2.0
+  */
+
+  var EventCenter = (function(){
+    var events = {};
+    function on(event, handler){
+        events[event] = events[event] || [];
+        events[event].push({
+            handler: handler
+        });
+    }
+
+    function fire(event, args){
+        if (!events[event]) {return}
+        for (var i = 0; i < events[event].length; i++) {
+            events[event][i].handler(args);
+        }
+    }
+
+    function off(event){
+        delete events[event];
+    }
+
+    return {
+        on: on,
+        fire: fire,
+        off: off
+    }
+})();
+
+EventCenter.on('event', function(data){
+console.log('event received...');
+});
   </script>
 </body>
 </html>

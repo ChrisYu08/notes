@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function say(a,b){
+      console.log('say',a,b)
+    }
+    Function.prototype.before=function(callback){
+      return (...args)=>{
+        callback();
+        this(...args);
+      }
+    }
+
+    let beforeSay = say.before(function(){
+      console.log('before say')
+    })
+    beforeSay('hello','world')
+  </script>
+</body>
+</html>

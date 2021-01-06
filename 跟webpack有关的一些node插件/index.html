@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * @webpack-merge
+     * What is the difference between Webpack-merge and Object.assign()?
+    */
+    const webpackMerge = require("webpack-merge");
+
+    const object1 = {
+      'x': [{'a': 'a' }, { 'b': 'b' }]
+    }
+
+    const object2 = {
+      'x': [{'c': 'c' }, { 'd': 'd' }]
+    }
+
+    console.log('result webpackMerge: ',
+      webpackMerge(object1, object2)
+    )
+
+    console.log('result Object.assign: ',
+      Object.assign({}, object1, object2)
+    )
+
+    console.log('result Object.spread: ',
+      {...object1, ...object2}
+    )
+
+    // The above will give you:
+
+    // result webpackMerge:  { x: [ { a: 'a' }, { b: 'b' }, { c: 'c' }, { d: 'd' } ] }
+    // result Object.assign:  { x: [ { c: 'c' }, { d: 'd' } ] }
+    // result Object spread:  { x: [ { c: 'c' }, { d: 'd' } ] }
+// As you can see above Object.assign() (or Object spread) overwrite the value of previous properties with the latter one, while webpack-merge concat the element of the array.
+  </script>
+</body>
+</html>

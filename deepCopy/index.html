@@ -21,6 +21,7 @@
     }
     return result;
   }  
+  
   function DeepCopy(obj){
     let result=Array.isArray(obj)?[]:{};
     for(let key in obj){
@@ -32,6 +33,19 @@
     }
     return result;
   }
+
+  function deepCopy1(obj){
+      let result=Array.isArray(obj)?[]:{};
+      let arr=Object.keys(obj);
+      arr.forEach((e,i)=>{
+        if(typeof obj[e]=='object' && obj[e]!=null){
+          result[e]=deepCopy1(obj[e])
+        }else{
+          result[e]=obj[e]
+        }
+      })
+      return result
+    }
   </script>
 </body>
 </html>

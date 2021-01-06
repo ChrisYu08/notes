@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   /*
+   两者之间最主要的区别就是Object.keys( )不会走原型链，而for in 会走原型链；
+    1. for in
+    2. Object.keys()
+    3. Object.getOwnProperty
+    Object.getOwnProperty主要用于返回对象的自有属性，包括可枚举和不可枚举的属性，不包括继承自原型的属性
+
+   */  
+   Object.prototype.test = 'test';
+
+    var obj= {
+        a:1,
+        b:2,
+    }
+    //Object.keys不会输出原型链中的数据；
+    console.log(Object.keys(obj))
+    // ["a", "b"]
+
+    for(var key in obj){
+        console.log(key)
+    }
+    // a
+    // b
+    // test　　　　//for in 会把原型链中test 输出
+
+
+
+
+  </script>
+</body>
+</html>

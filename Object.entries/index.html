@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+  Object.entries() 方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环也枚举原型链中的属性）。
+
+  通俗点就是 Object.entries() 可以把一个对象的键值以数组的形式遍历出来，结果和 for...in 一致，但不会遍历原型属性。
+
+    */
+    const obj = { foo: 'bar', baz: 'abc' }; 
+    console.log(Object.entries(obj));  // [['foo', 'bar'], ['baz', 'abc']]
+
+
+    const arr = [1, 2, 3]; 
+    console.log(Object.entries(arr));  // [['0', 1], ['1', '2'], ['2', '3']]
+  </script>
+</body>
+</html>
