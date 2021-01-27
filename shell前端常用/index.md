@@ -141,3 +141,8 @@ SSH-2.0-OpenSSH_5.3
 a
 Protocol mismatch.
 Connection closed by foreign host.
+
+### ls筛选
+
+ls | grep a （这个命令是列出当前文件夹下带a的文件或文件夹）
+|为管道符pipe，前一个命令的结果将作为后一个的输入
