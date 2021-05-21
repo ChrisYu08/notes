@@ -247,18 +247,18 @@ var findLength = function(A, B) {
     */
      var maxSubArray = function(nums) {
         let maxSum = nums[0];
-        let contSum = nums[0];
+        let countSum = nums[0];
 
-        nums.slice(1).forEach((num) => {console.log(num,contSum)
+        nums.slice(1).forEach((num) => {console.log(num,countSum)
             // if (num > contSum) {
-              //这是处理负数
-                contSum = Math.max(num, contSum + num);
+              //这里判断的是是不是重新计算的num比之前累加的和要大，如果是的话，重新计数
+                countSum = Math.max(num, countSum + num);
             // } else {
             //     contSum += num;
             // }
 
-            if (contSum > maxSum) {
-                maxSum = contSum;
+            if (countSum > maxSum) {
+                maxSum = countSum;
             }console.log(maxSum)
         });
 

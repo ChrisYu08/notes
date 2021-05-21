@@ -46,6 +46,19 @@
       })
       return result
     }
+
+  function deepCopy2(obj){
+      let result=Array.isArray(obj)?[]:{};
+      let arr = Object.keys(obj);
+      arr.forEach((e,i)=>{
+        if(typeof obj[e]==='object' && obj[e]!=null){
+          result[e]=deepCopy2(obj[e])
+        }else{
+          result[e]=obj[e]
+        }
+      })
+      return result
+  }
   </script>
 </body>
 </html>

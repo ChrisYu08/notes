@@ -10,4 +10,4 @@ useMemo和useCallback都会在组件第一次渲染的时候执行，之后会�
 
 - example
 
-### useCallback 和 useMemo有点类似于vue里的watch(){}
+### useCallback 和 useMemo有点类似于vue里的computed(){}
