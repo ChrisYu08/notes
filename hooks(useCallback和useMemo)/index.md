@@ -6,6 +6,10 @@
 
 useCallback和useMemo的参数跟useEffect一致，他们之间最大的区别有是useEffect会用于处理副作用，而前两个hooks不能。(用于返回函数，比如缓存的事件函数)
 
+```
+  ！！！Event handlers里如果有获取更新最新的state或者props时候不能用useCallback作为Event handler,因为useCallback不能只能获取之前的props和state
+```
+
 ### 什么叫副作用
 - website：https://www.zhihu.com/question/303338688
   

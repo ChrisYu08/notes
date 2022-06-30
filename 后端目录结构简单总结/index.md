@@ -1,0 +1,4 @@
+- 路由层router(会做一些权限的校验等，网关层)
+- Controller层（会做一些数据的包装及处理）
+- Model层（只做db的操作，会写sql curd，通过实例调用）
+- Provider（会做一些初始化工作，db连接验证初始化等）

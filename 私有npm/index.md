@@ -1,3 +1,3 @@
 ## verdaccio
 
-### website:https://www.dazhuanlan.com/2020/01/02/5e0dc941965c6/
+### website:https://juejin.cn/post/7055478418204262436

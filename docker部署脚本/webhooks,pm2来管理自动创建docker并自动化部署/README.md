@@ -1,0 +1,1 @@
+这里通过node脚本来接收hooks的request，然后进行一系列操作，比如执行frontend.sh来进行build和deploy，自动化部署
